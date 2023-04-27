@@ -1,25 +1,14 @@
 # openRTB v2.5(display, video)
-## document for DSP partners
-### bid request ###
 
-
-### bid response ###
-
-
---
-# Admixer integration guide.
-
-
-
-This document is RTB integration specification for `DSP` that wish to buy Admixer’s inventories real time in order to run their ads on them.  
-This document complies with the OpenRTB 2.3 specificatoin.
+This document is openRTB integration specification for `DSP` that wish to buy Admaru LLC’s inventories real time in order to run their ads on them.
+This document complies with the OpenRTB 2.5 specificatoin.
 
 Therefore, this document does not cover details regarding BidRequest/Response.  
-For more details on these, please check OpenRTB 2.3 specification via below link.
+For more details on these, please check OpenRTB 2.5 specification via below link.
 
-https://www.iab.com/wp-content/uploads/2015/06/OpenRTB-API-Specification-Version-2-3.pdf
+https://www.iab.com/wp-content/uploads/2016/03/OpenRTB-API-Specification-Version-2-5-FINAL.pdf
 
-If you have any question about this document, please reach out to admixer@nasmedia.co.kr.  
+If you have any question about this document, please reach out to contact@admaru.com.  
 <br>
 
 # 1. Bid Request Specification
