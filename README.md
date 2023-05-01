@@ -1,308 +1,54 @@
 # openRTB v2.5(display, video)
 
-This document is openRTB integration specification for `DSP` that wish to buy Admaru LLC’s inventories real time in order to run their ads on them.
-This document complies with the OpenRTB 2.5 specificatoin.
+This document is openRTB(complies with the OpenRTB 2.5 specificatoin) integration specification for `DSP` that wish to buy Admaru LLC’s inventories.
 
-Therefore, this document does not cover details regarding BidRequest/Response.  
-For more details on these, please check OpenRTB 2.5 specification via below link.
-
+Kindly check OpenRTB 2.5 specification via below link.
 https://www.iab.com/wp-content/uploads/2016/03/OpenRTB-API-Specification-Version-2-5-FINAL.pdf
 
-If you have any question about this document, please reach out to contact@admaru.com.  
+
 <br>
 
-# 1. Bid Request Specification
+# Bid Request 
 ## Object model
 
-Object | Support | OpenRTB 2.3 Section for Reference | Extension
-:--- | :---: | :---: | :---
-BidRequest | O | 3.2.1 | X
-Imp | O | 3.2.2 | X
-Banner | O | 3.2.3 | X
-Video | O | 3.2.4 | X
-Native | O | 3.2.5 | X
-Site | O | 3.2.6 | X
-App | O | 3.2.7 | X
-Publisher | O | 3.2.8 | X
-Content | O | 3.2.9 | X
-Producer | X | 3.2.10 | -
-Device | O | 3.2.11 | X
-Geo | O | 3.2.12 | X
-User | O | 3.2.13 | O
-Data | X | 3.2.14 | -
-Segment | X | 3.2.15 | -
-Regs | O | 3.2.16 | O
-PMP | X | 3.2.17 | -
-Deal | X | 3.2.18 | -
-<br>
+
+Object | Support | OpenRTB 2.5 Section for Reference 
+:--- | :---: | :---: 
+BidRequest | O | 3.2.1 
+Source | O | 3.2.2 
+Regs | O | 3.2.3 
+Imp | O | 3.2.4
+Metric | X | 3.2.5
+Banner | O | 3.2.6
+Video | O | 3.2.7 
+Native | X | 3.2.9 
+Format | O | 3.2.10
+PMP | X | 3.2.11 
+Deal | X | 3.2.12 
+Site | O | 3.2.13 
+App | X | 3.2.14 
+Publisher | O | 3.2.15 
+Content | O | 3.2.16
+Producer | X | 3.2.17
+Device | O | 3.2.18
+Geo | O | 3.2.19 
+User | O | 3.2.20
+Data | X | 3.2.21
+Segment | X | 3.2.22 
+Native Markup | X | - | 4.1
+Asset | O | - | 4.2 
+Title | O | - | 4.3 
+Image | O | - | 4.4 
+Video | O | - | 4.5 
+Data | O | - | 4.6 
+
 
 ## Request sample
 
 ## Banner
-	{
-		"id": "0m1hqt5x",
-		"imp": [{
-			"id": "1",
-			"bidfloor": 0.03,
-			"bidfloorcur": "USD",
-			"banner": {
-				"w": 320,
-				"h": 50,
-				"btype": [1, 3, 4]
-			}
-		}],
-		"app": {
-			"id": "78e87y2f284vry62",
-			"name": "com.test",
-			"bundle": "com.test",
-			"storeurl": "https://play.google.com/store/apps/details?id=com.test",
-			"cat": ["IAB3"],
-	"publisher": {
-			        "id": "1234"
-		         }
-		},
-		"device": {
-			"ua": "Mozilla/5.0 (Linux; Android 4.4.4; Nexus 5 Build/KTU84P) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/33.0.0.0 Mobile Safari/537.36",
-			"os": "android",
-			"osv": "4.4.4",
-			"model": "SHV-E160K",
-			"ip": "123.145.167.189",
-			"ifa": "f5edbc38-2614-4470-927c-f182fc003411"
-		},
-		"regs": {
-			"ext": {
-				"gdpr": 0
-			}
-		}
-	}
-<br>
+	{ "id": "80ce30c53c16e6ede735f123ef6e32361bfc7b22", "at": 1, "cur": [ "USD" ], "imp": [ { "id": "1", "bidfloor": 0.03, "banner": { "h": 250, "w": 300, "pos": 0 } } ], "site": { "id": "102855", "cat": [ "IAB3-1" ], "domain": "www.foobar.com", "page": "http://www.foobar.com/1234.html ", "publisher": { "id": "8953", "name": "foobar.com", "cat": [ "IAB3-1" ], "domain": "foobar.com" } }, "device": {"ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_8) AppleWebKit/537.13 (KHTML, like Gecko) Version/5.1.7 Safari/534.57.2", "ip": "123.145.167.10" }, "user": { "id": "55816b39711f9b5acf3b90e313ed29e51665623f" } }
 
 ## Video
-	{
-		"id": "0m1hqt5x",
-		"imp": [{
-			"id": "1",
-			"bidfloor": 0.03,
-			"video": {
-				"w": 640,
-				"h": 480,
-				"minduration": 5,
-				"maxduration": 30,
-				"api": [1, 2],
-				"protocols": [2, 3],
-				"mimes": ["video/x-flv", "video/mp4", "application/x-shockwave-flash", "application/javascript"],
-				"battr": [13, 14]
-			}
-		}],
-		"app": {
-			"id": "78e87y2f284vry62",
-			"name": "test app",
-			"bundle": "com.app.test",
-			"storeurl": "http://test.test",
-			"cat": ["IAB3"],
-			"content": {
-				"id": "abcde",
-				"episode": "test episode",
-				"series": "test series",
-				"season": "test season",
-				"cat": ["IAB3"]
-			}
-		},
-		"device": {
-			"ua": "Mozilla/5.0 (Linux; Android 4.4.4; Nexus 5 Build/KTU84P) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/33.0.0.0 Mobile Safari/537.36",
-			"os": "android",
-			"osv": "4.4.4",
-			"model": "SHV-E160K",
-			"ip": "123.145.167.189",
-			"ifa": "f5edbc38-2614-4470-927c-f182fc003411"
-		},
-		"regs": {
-			"ext": {
-				"gdpr": 0
-			}
-		}
-	}
-<br>
+	{ "id": "1234567893", "at": 2, "tmax": 120, "imp": [ { "id": "1", "bidfloor": 0.03, "video": { "w": 640, "h": 480, "pos": 1, "startdelay": 0, "minduration": 5, "maxduration": 30,"maxextended": 30, "minbitrate": 300, "maxbitrate": 1500, "api": [ 1, 2 ], "protocols": [ 2, 3 ], "mimes": [ "video/x-flv", "video/mp4", "application/x-shockwave-flash", "application/javascript" ], "linearity": 1, "boxingallowed": 1, "playbackmethod": [ 1, 3 ], "delivery": [ 2 ], "battr": [ 13, 14 ], "companionad": [ { "id": "1234567893-1", "w": 300, "h": 250, "pos": 1, "battr": [ 13, 14 ], "expdir": [ 2, 4 ] }, { "id": "1234567893-2", "w": 728, "h": 90, "pos": 1, "battr": [ 13, 14 ] } ], "companiontype": [ 1, 2 ] } } ], "site": { "id": "1345135123", "name": "Site ABCD", "domain": "siteabcd.com", "cat": [ "IAB2-1", "IAB2-2" ], "page": "http://siteabcd.com/page.htm", "ref": "http://referringsite.com/referringpage.htm", "privacypolicy": 1, "publisher": { "id": "pub12345", "name": "Publisher A" }, "content": { "id": "1234567", "series": "All About Cars", "season": "2", "episode": 23, "title": "Car Show", "cat": [ "IAB2-2" ], "keywords": "keyword-a,keyword-b,keyword-c" } }, "device": { "ip": "64.124.253.1", "ua": "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.6; en-US; rv:1.9.2.16) Gecko/20110319 Firefox/3.6.16","os": "OS X", "flashver": "10.1", "js": 1 }, "user": { "id": "456789876567897654678987656789", "buyeruid": "545678765467876567898765678987654", "data": [ { "id": "6", "name": "Data Provider 1", "segment": [ { "id": "12341318394918", "name": "auto intenders" }, { "id": "1234131839491234", "name": "auto enthusiasts" } ] } ] } }
 
-## Native
-	{ 
-		"id": "0m1hqt5x", 
-		"imp": [{ 
-			"id": "1001-2000-3000-4000", 
-			"bidfloor": 0.03, 
-			"native": { 
-				"request": "{\"native\":{\"ver\":\"1.2\",\"assets\":[ ... ]}}", 
-				"ver": "1.2", 
-				"api": [3], 
-				"battr": [13, 14] 
-			} 
-		}], 
-		"app": { 
-			"id": "78e87y2f284vry62", 
-			"name": "test app", 
-			"bundle": "com.app.test", 
-			"storeurl": "http://test.test", 
-			"cat": ["IAB3"] 
-		}, 
-		"device": { 
-			"ua": "Mozilla/5.0 (Linux; Android 4.4.4; Nexus 5 Build/KTU84P) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/33.0.0.0 Mobile Safari/537.36", 
-			"os": "android", 
-			"osv": "4.4.4", 
-			"model": "SHV-E160K", 
-			"ip": "123.145.167.189", 
-			"ifa": "f5edbc38-2614-4470-927c-f182fc003411" 
-		}, 
-		"regs": { 
-			"ext": { 
-				"gdpr": 0 
-			} 
-		} 
-	} 
-<br>
 
-# 2. Bid Response Specification
-## Object model
-
-Object | Support | OpenRTB 2.3 Section for Reference | Extension
-:--- | :---: | :---: | :---
-BidResponse | O | 4.2.1 | X
-SeatBid | O | 4.2.2 | X
-Bid | O | 4.2.3 | X
-<br>
-
-## Object Specifications
-
-- Object : BidResponse
-
-Field name | Support
-:--- | :---
-id | O (Mandatory)
-seatbid | O
-bidid | O
-cur | O (USD only)
-customdata | X
-nbr | X
-ext | X
-<br>
-
-- Object : SeatBid
-
-Field name | Support
-:--- | :---
-bid | O (Mandatory)
-seat | O
-group | X
-ext | X
-<br>
-
-- Object : Bid
-
-Field name | Support
-:--- | :---
-id | O (Mandatory)
-impid | O (Mandatory)
-price | O (Mandatory)
-adid | O
-nurl | X
-adm | O (Mandatory), Format: HTML<br>Win notice URL must be included within HTML.
-adomain | O (Mandatory)
-bundle | O (Mandatory)
-iurl | O (Mandatory)
-cid | O (Mandatory)
-crid | O (Mandatory)
-cat | O
-attr | O
-dealid | X
-h | O
-w | O
-ext | X
-<br>
-
-## Response sample
-
-## Banner
-	{
-		"id": "1234567890",
-		"bidid": "abc1123",
-		"cur": "USD",
-		"seatbid": [{
-			"seat": "512",
-			"bid": [{
-				"id": "1",
-				"impid": "1",
-				"price": 9.43,
-				"adomain": ["aaa.com"],
-				"bundle": "com.test",
-				"iurl": "http://test.com/image/aaa.jpg",
-				"cid": "100",
-				"crid": "1234",
-				"adm": "<div style=\"width:100%;height:100%;text-align:center;\"><a href=\"http://test.admixer.co.kr/click\" target=\"_top\" style=\"text-decoration:none;\"><img id=\"ad\" src=\"http://test.admixer.co.kr/image.jpg\" style=\"width:320px;height:50px;border:0px;\"/></a><img src=\"http://test.admixer.co.kr/winnotice?impid=102&price=${AUCTION_PRICE}\" style=\"width:1px;height:1px;display:none;\" /></div>",
-				"attr": [1, 2, 3, 4, 5, 6, 7, 12]
-			}]
-		}]
-	}
-<br>
-
-## Video
-	{
-		"id": "0m1hqt5x",
-		"bidid": "abc1123",
-		"cur": "USD",
-		"seatbid": [{
-			"seat": "512",
-			"bid": [{
-				"id": "adxb_20151203171854390422024850",
-				"impid": "1",
-				"price": 1.2,
-				"adomain": ["aaa.com"],
-				"bundle": "com.test",
-				"cid": "100",
-				"crid": "1234",
-				"adm": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><VAST version=\"2.0\"></VAST>"
-			}]
-		}]
-	}
- 
-<br>
-
-## Native
-	{
-		"id": "0m1hqt5x",
-		"bidid": "abc1123",
-		"cur": "USD",
-		"seatbid": [{
-			"seat": "512",
-			"bid": [{
-				"id": "adxb_20151203171854390422024850",
-				"impid": "1",
-				"price": 1.2,
-				"adomain": ["aaa.com"],
-				"bundle": "com.test",
-				"iurl": "http://test.com/image/aaa.jpg",
-				"cid": "100",
-				"crid": "1234",
-				"adm": "{\"native\":{\"ver\":\"1.0\",\"link\":{ ... }, \"imptrackers\":[ ... ],\"assets\":[ ... ]}}"
-			}]
-		}]
-	}
-<br>
-
-## Macro Replacement
-
-Macro | Explanation | Support
-:--- | :---: | :---
-${AUCTION_ID} | BidRequest.id | O
-${AUCTION_BID_ID} | BidResponse.id | O
-${AUCTION_IMP_ID} | win Imp.id | O
-${AUCTION_SEAT_ID} | win SeatBid.seat | O
-${AUCTION_AD_ID} | Bid.adid | O
-${AUCTION_PRICE} | win Price | O
-${AUCTION_PRICE:B64} | win Price (Base64 encoding) | O
-${AUCTION_CURRENCY} | Currency of win price | O
-<br>
-
-## Win notice
-
-Method | Explanation
-:--- | :---
-Client-to-Server | Win notice URL must be included within Bid.adm.<br>After the Macro Replacement process of the URL, it gets sent to the client.<br>-> Calls for Win notice URL during the client’s ad HTML loading process.
