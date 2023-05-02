@@ -13,35 +13,31 @@ https://www.iab.com/wp-content/uploads/2016/03/OpenRTB-API-Specification-Version
 ## Object model
 
 
-Object | Support | OpenRTB 2.5 Section for Reference 
-:--- | :---: | :---: 
-BidRequest | O | 3.2.1 
-Source | O | 3.2.2 
-Regs | O | 3.2.3 
-Imp | O | 3.2.4
-Metric | X | 3.2.5
-Banner | O | 3.2.6
-Video | O | 3.2.7 
-Native | X | 3.2.9 
-Format | O | 3.2.10
-PMP | X | 3.2.11 
-Deal | X | 3.2.12 
-Site | O | 3.2.13 
-App | X | 3.2.14 
-Publisher | O | 3.2.15 
-Content | O | 3.2.16
-Producer | X | 3.2.17
-Device | O | 3.2.18
-Geo | O | 3.2.19 
-User | O | 3.2.20
-Data | X | 3.2.21
-Segment | X | 3.2.22 
-Native Markup | X | - | 4.1
-Asset | O | - | 4.2 
-Title | O | - | 4.3 
-Image | O | - | 4.4 
-Video | O | - | 4.5 
-Data | O | - | 4.6 
+Object | Support
+:--- | :---: 
+BidRequest | O
+Source | O 
+Regs | O 
+Imp | O 
+Metric | X 
+Banner | O 
+Video | O 
+Native | X 
+Format | O 
+PMP | X 
+Deal | X 
+Site | O 
+App | X 
+Publisher | O 
+Content | O 
+Producer | X 
+Device | O 
+Geo | X 
+User | O 
+Data | X 
+Segment | X 
+Native Markup | X 
+
 
 
 ## Request sample
